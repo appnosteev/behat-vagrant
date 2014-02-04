@@ -27,9 +27,10 @@ To connect to the console of you instance: `vagrant ssh`
 # MANUAL STEP
 
 * Until a version collision is repaired, one manual step is required to update the behat libraries
-*`vagrant ssh`
-*`cd /vagrant/public/drupal.vbox.local/docroot/`
-*`drush composer-manager update`
+
+`vagrant ssh`
+`cd /vagrant/public/drupal.vbox.local/docroot/`
+`drush composer-manager update`
 
 --------
 # HOW TO TEST
@@ -47,36 +48,44 @@ http://drupal.vbox.local/admin/
 
 * The vagrant build will download the selenium server but will not configure or start it automatically. 
 * To start the server:
-*`vagrant ssh`
-*`cd /vagrant`
-*`java -jar selenium-server-standalone-2.31.0.jar`
+
+`vagrant ssh`
+`cd /vagrant`
+`java -jar selenium-server-standalone-2.31.0.jar`
+
 * TODO instructions to use selenium server
     
 --------
 # REBUILD
 To rebuild the software and OS (keeping the vm intact)
+
 *`/usr/bin/mysql -u root -proot -e \"DROP DATABASE drupal;\"`
-*`sudo rm -rf public;vagrant provision`
+
+`sudo rm -rf public;vagrant provision`
 
 *To rebuild from scratch change to the install directory and do:
-*`vagrant destroy -f;sudo rm -rf public;vagrant up`
+
+`vagrant destroy -f;sudo rm -rf public;vagrant up`
+
 *(you will be prompted for your password for nfs setup. Do this, THEN grab some coffee)
 
 --------
 # ISSUES
 
 Composer manager requires input
-* Sometimes the composer manager update fails as it requires manual intervention.  The symptoms of this are modules not working as expected and class/wrapper not found errors. We are working on this fix.
-* Workaround:
+* Sometimes the composer manager update fails as it requires manual intervention.  The symptoms of this are modules not working as expected and class/wrapper not found errors. We are working on this fix workaround:
 * First try:
-*`vagrant ssh`
-*`cd /vagrant/public/drupal.vbox.local/docroot/`
-*'drush composer-manager update`
+
+`vagrant ssh`
+`cd /vagrant/public/drupal.vbox.local/docroot/`
+`drush composer-manager update`
 
 * if that doesnt work then try:
-*`vagrant ssh`
-*`cd /vagrant/public/drupal.vbox.local/docroot/sites/default/files/composer`
-*`php composer.phar update`
+
+`vagrant ssh`
+`cd /vagrant/public/drupal.vbox.local/docroot/sites/default/files/composer`
+`php composer.phar update`
+
 * You will likely see a prompt to update a module from git or some files have changed somewhere.
 * TODO This can likely be fixed with a silent flag for the most part. 
 
@@ -85,9 +94,10 @@ Fatal error: Class 'Drupal\BehatEditor\FileController' not found in /vagrant/pub
 * I have seen this where github has asked for credentials duing the update
 * and the script wasn't completed.
 * to fix do this
-*`vagrant ssh`
-*`cd /vagrant/public/drupal.vbox.local/docroot/`
-*`drush composer-manager update` 
+
+`vagrant ssh`
+`cd /vagrant/public/drupal.vbox.local/docroot/`
+`drush composer-manager update` 
 
 --------
 
