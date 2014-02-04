@@ -1,0 +1,4 @@
+name = Behat sample content
+description = Creates sample content so the github_behat_editor module doesnt break on install
+core = 7.x
+files[] = tests/behat_sample_content.test

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Behat organic groups feature.
+ */
+
+include_once 'behat_organic_groups.features.inc';

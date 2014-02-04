@@ -1,0 +1,12 @@
+diff --git a/Vagrantfile b/Vagrantfile
+index 6e7bc8f..f4f36cd 100644
+--- a/Vagrantfile
++++ b/Vagrantfile
+@@ -22,6 +22,7 @@ Vagrant::Config.run do |config|
+   config.vm.network :hostonly, "33.33.33.10"
+ 
+   config.vm.share_folder("v-root", "/vagrant", ".")
++  config.vm.share_folder("public", "/vagrant/public", "./public", :owner => "www-data", :group => "www-data")
+   # config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
+   # config.vm.share_folder("v-apt", "/var/cache/apt", "~/temp/vagrant_aptcache/apt", :nfs => true)
+ 

@@ -1,0 +1,16 @@
+default:
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      default_session: selenium2
+      goutte: ~
+      selenium2: ~
+      base_url: http://behat
+      browser_name: firefox
+      javascript_session:  'selenium2'
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      subcontexts:
+              paths:
+                - "/vagrant/public/drupal.vbox.local/docroot/sites/all/modules"
