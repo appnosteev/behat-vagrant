@@ -11,10 +11,13 @@ Maintained by steve@appnovation.com
 1. Download and Install [VirtualBox](http://www.virtualbox.org/) (ensure you are on the latest version 4.0.8+)
 2. Install [vagrant](http://vagrantup.com/v1/docs/getting-started/index.html)
 3. Download or Clone this project go to the folder and launch the box:
+
 ```cd [vagrant project directory];```
 
 ``` vagrant up```
+
 4. Add this line to your /etc/hosts (or windows equivalent):
+
     ```33.33.33.10        drupal.vbox.local dev-site.vbox.local```
     
 This will install and configure the behat_editor and associated modules at : [http://drupal.vbox.local/](http://drupal.vbox.local/)
@@ -72,7 +75,9 @@ To rebuild the software and OS (keeping the vm intact)
 To rebuild from scratch change to the install directory and do:
 
 ```vagrant destroy -f```
+
 ```sudo rm -rf public```
+
 ```vagrant up```
 
 (you will be prompted for your password for nfs setup. Do this, THEN grab some coffee)
