@@ -11,7 +11,9 @@ Maintained by steve@appnovation.com
 1. Download and Install [VirtualBox](http://www.virtualbox.org/) (ensure you are on the latest version 4.0.8+)
 2. Install [vagrant](http://vagrantup.com/v1/docs/getting-started/index.html)
 3. Download or Clone this project go to the folder and launch the box:
-    `cd [vagrant project directory]; vagrant up`
+`cd [vagrant project directory];`
+
+` vagrant up`
 4. Add this line to your /etc/hosts (or windows equivalent):
     `33.33.33.10        drupal.vbox.local dev-site.vbox.local`
     
@@ -26,10 +28,12 @@ To connect to the console of you instance: `vagrant ssh`
 --------
 # MANUAL STEP
 
-* Until a version collision is repaired, one manual step is required to update the behat libraries
+Until a version collision is repaired, one manual step is required to update the behat libraries
 
 `vagrant ssh`
+
 `cd /vagrant/public/drupal.vbox.local/docroot/`
+
 `drush composer-manager update`
 
 --------
@@ -50,7 +54,9 @@ http://drupal.vbox.local/admin/
 * To start the server:
 
 `vagrant ssh`
+
 `cd /vagrant`
+
 `java -jar selenium-server-standalone-2.31.0.jar`
 
 * TODO instructions to use selenium server
@@ -65,7 +71,9 @@ To rebuild the software and OS (keeping the vm intact)
 
 To rebuild from scratch change to the install directory and do:
 
-`vagrant destroy -f;sudo rm -rf public;vagrant up`
+`vagrant destroy -f`
+`sudo rm -rf public`
+`vagrant up`
 
 (you will be prompted for your password for nfs setup. Do this, THEN grab some coffee)
 
@@ -77,13 +85,17 @@ Sometimes the composer manager update fails as it requires manual intervention. 
 First try:
 
 `vagrant ssh`
+
 `cd /vagrant/public/drupal.vbox.local/docroot/`
+
 `drush composer-manager update`
 
  if that doesnt work then try:
 
 `vagrant ssh`
+
 `cd /vagrant/public/drupal.vbox.local/docroot/sites/default/files/composer`
+
 `php composer.phar update`
 
 * You will likely see a prompt to update a module from git or some files have changed somewhere.
