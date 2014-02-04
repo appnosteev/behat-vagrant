@@ -43,7 +43,7 @@ To connect to the console of you instance: `vagrant ssh`
 --------
 # SELENIUM
 
-*The behat_editor_saucelabs module is enabled and must be configured here before use:
+The behat_editor_saucelabs module is enabled and must be configured here before use:
 http://drupal.vbox.local/admin/
 
 * The vagrant build will download the selenium server but will not configure or start it automatically. 
@@ -59,28 +59,28 @@ http://drupal.vbox.local/admin/
 # REBUILD
 To rebuild the software and OS (keeping the vm intact)
 
-*`/usr/bin/mysql -u root -proot -e \"DROP DATABASE drupal;\"`
+`/usr/bin/mysql -u root -proot -e \"DROP DATABASE drupal;\"`
 
 `sudo rm -rf public;vagrant provision`
 
-*To rebuild from scratch change to the install directory and do:
+To rebuild from scratch change to the install directory and do:
 
 `vagrant destroy -f;sudo rm -rf public;vagrant up`
 
-*(you will be prompted for your password for nfs setup. Do this, THEN grab some coffee)
+(you will be prompted for your password for nfs setup. Do this, THEN grab some coffee)
 
 --------
 # ISSUES
 
 Composer manager requires input
-* Sometimes the composer manager update fails as it requires manual intervention.  The symptoms of this are modules not working as expected and class/wrapper not found errors. We are working on this fix workaround:
-* First try:
+Sometimes the composer manager update fails as it requires manual intervention.  The symptoms of this are modules not working as expected and class/wrapper not found errors. We are working on this fix workaround:
+First try:
 
 `vagrant ssh`
 `cd /vagrant/public/drupal.vbox.local/docroot/`
 `drush composer-manager update`
 
-* if that doesnt work then try:
+ if that doesnt work then try:
 
 `vagrant ssh`
 `cd /vagrant/public/drupal.vbox.local/docroot/sites/default/files/composer`
@@ -90,13 +90,12 @@ Composer manager requires input
 * TODO This can likely be fixed with a silent flag for the most part. 
 
 Fatal error: Class 'Drupal\BehatEditor\FileController' not found in /vagrant/public/drupal.vbox.local/docroot/sites/all/
-* This means the composer manager failed somewhere.  
-* I have seen this where github has asked for credentials duing the update
-* and the script wasn't completed.
-* to fix do this
+This means the composer manager failed somewhere.  I have seen this where github has asked for credentials duing the update and the script wasn't completed. To fix do this
 
 `vagrant ssh`
+
 `cd /vagrant/public/drupal.vbox.local/docroot/`
+
 `drush composer-manager update` 
 
 --------
