@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network :public_network
+  # config.vm.network :public_network
 
   # enable this to have the vm bridge your local network and get an ip from dhcp
   # else it will only be available on your local machine at 33.33.33.10
