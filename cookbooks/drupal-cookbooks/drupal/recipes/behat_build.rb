@@ -202,3 +202,16 @@ bash "final-composer-rebuild" do
     drush composer-manager update -y
   EOH
 end
+
+
+# update to php 5.4 http://www.barryodonovan.com/index.php/2012/05/22/ubuntu-12-04-precise-pangolin-and-php-5-4-again
+# dont execute the grub updates as they require input
+bash "udpate-php54" do
+  code <<-EOH
+    add-apt-repository -y ppa:ondrej/php5-oldstable
+  #  echo 'grub-pc hold' | sudo dpkg --set-selections
+    apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php5
+    #apt-get upgrade php5 -y
+  EOH
+end
