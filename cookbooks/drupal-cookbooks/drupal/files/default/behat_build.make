@@ -50,18 +50,22 @@ projects[views][version] = "3.7"
 projects[bootstrap][version] = "3.0"
 
 ; Modules
+projects[behat_editor][subdir] = "custom"
 projects[behat_editor][download][type] = "git"
 projects[behat_editor][download][url] = "https://github.com/alnutile/behat_editor.git"
 projects[behat_editor][type] = "module"
 
+projects[behat_editor_saucelabs][subdir] = "custom"
 projects[behat_editor_saucelabs][download][type] = "git"
 projects[behat_editor_saucelabs][download][url] = "https://github.com/alnutile/behat_editor_saucelabs.git"
 projects[behat_editor_saucelabs][type] = "module"
 
+projects[github_behat_editor][subdir] = "custom"
 projects[github_behat_editor][download][type] = "git"
 projects[github_behat_editor][download][url] = "https://github.com/alnutile/github_behat_editor.git"
 projects[github_behat_editor][type] = "module"
 
+projects[simple_noty][subdir] = "custom"
 projects[simple_noty][download][type] = "git"
 projects[simple_noty][download][url] = "https://github.com/alnutile/simple_noty.git"
 projects[simple_noty][type] = "module"

@@ -48,7 +48,7 @@ bash "install-default-drupal-site" do
 end
 
 #copy correct behat.yml to behat_editor
-cookbook_file "/vagrant/public/drupal.vbox.local/docroot/sites/all/modules/behat_editor/behat/behat.yml" do
+cookbook_file "/vagrant/public/drupal.vbox.local/docroot/sites/all/modules/custom/behat_editor/behat/behat.yml" do
   source "behat.yml"
 end
 
@@ -108,8 +108,8 @@ bash "really-bad-way-to-copy-directories-into-a-vm" do
   #creates a dummy page (group) else the github editor fails
   code <<-EOH
   cd /vagrant/public/drupal.vbox.local/docroot
-  cp -r /vagrant/cookbooks/drupal-cookbooks/drupal/files/default/behat_organic_groups /vagrant/public/drupal.vbox.local/docroot/sites/all/modules/
-  cp -r /vagrant/cookbooks/drupal-cookbooks/drupal/files/default/behat_sample_content /vagrant/public/drupal.vbox.local/docroot/sites/all/modules/  
+  cp -r /vagrant/cookbooks/drupal-cookbooks/drupal/files/default/behat_organic_groups /vagrant/public/drupal.vbox.local/docroot/sites/all/modules/custom
+  cp -r /vagrant/cookbooks/drupal-cookbooks/drupal/files/default/behat_sample_content /vagrant/public/drupal.vbox.local/docroot/sites/all/modules/custom
   drush en behat_organic_groups behat_sample_content -y
   drush behat-sample-content -y
   EOH
@@ -212,6 +212,13 @@ bash "udpate-php54" do
   #  echo 'grub-pc hold' | sudo dpkg --set-selections
     apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php5
-    #apt-get upgrade php5 -y
+# TODO install apc, xhprof and xdebug
   EOH
+end
+# one final update to remove the manual step if not necessary this time. 
+bash "one-final-composer-manager-update" do
+  code <<-EOH
+  cd /vagrant/public/drupal.vbox.local/docroot
+    drush composer-manager update -y
+EOH
 end
