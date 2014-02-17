@@ -453,4 +453,4 @@ ini_set('session.cookie_lifetime', 2000000);
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
-ini_set('memory_limit','512M');
+ini_set('memory_limit','1024M');

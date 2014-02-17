@@ -73,7 +73,7 @@ end
 bash "install-drupal" do
   code <<-EOH  
   cd /vagrant/public/drupal.vbox.local/docroot
-  drush si --db-url=mysql://root:root@localhost:3306/drupal --account-pass=admin --account-name=admin --site-name=Behat-Vagrant -y 
+  drush si standard install_configure_form.update_status_module='array(FALSE,FALSE)' --db-url=mysql://root:root@localhost:3306/drupal --account-pass=admin --account-name=admin --site-name=Behat-Vagrant -y 
   EOH
 end
 
