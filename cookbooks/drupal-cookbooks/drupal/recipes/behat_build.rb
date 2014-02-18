@@ -208,7 +208,7 @@ end
 # dont execute the grub updates as they require input
 bash "udpate-php54" do
   code <<-EOH
-    add-apt-repository -y ppa:ondrej/php5-oldstable
+    add-apt-repository ppa:ondrej/php5-oldstable
   #  echo 'grub-pc hold' | sudo dpkg --set-selections
     apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php5
