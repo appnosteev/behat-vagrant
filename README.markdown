@@ -29,17 +29,6 @@ Password: admin
 To connect to the console of you instance: ```vagrant ssh```
     
 --------
-# MANUAL STEP
-
-Until a version collision is repaired, one manual step is required to update the behat libraries
-
-```vagrant ssh```
-
-```cd /vagrant/public/drupal.vbox.local/docroot/```
-
-```drush composer-manager update```
-
---------
 # HOW TO TEST
 * Navigate to /admin/behat/add
 * Follow the link to add your saucelabs credentials 
@@ -48,10 +37,13 @@ Until a version collision is repaired, one manual step is required to update the
 * You should see the test complete and be able to view the video in the browser
 
 --------
-# SELENIUM
+# SAUCELABS
 
 The behat_editor_saucelabs module is enabled and must be configured here before use:
 http://drupal.vbox.local/admin/
+
+--------
+# SELENIUM
 
 * The vagrant build will download the selenium server but will not configure or start it automatically. 
 * To start the server:
